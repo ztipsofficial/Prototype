@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>ZTips</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Application -->
+    <link href="css/app.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container" id="article-list">
+    <div class="row">
+        <div class="col-lg-12">
+            <p id="account" class="welcome pull-right"></p>
+            <p id="accountBalance" class="welcome right pull-left"></p>
+        </div>
+    </div>
+</div>
+
+<div class="row center-block">
+    <div class="top_image">
+        <img src="Ztips.jpg" />
+        <h1>ZTips</h1>
+    </div>
+
+</div>
+ <button onclick="App.previewHash('fcd27c9dd2cd445f9945edb1f28833af56552b02285c384cd4c9f850e3d9b30c')">Download</button>
+ <input type="file" class="file" id="file" name="file" value="Upload picture" onchange="App.uploadToSwarm()" />
+<div class="container">
+    <div class="row text-center">
+        <p>Do you seek or want to share any bounty?</p>
+        </div>
+        <br>
+
+    <!-- Search -->
+    <div class="row center-block">
+        <div class="col-lg-offset-2 col-lg-8">
+        <div class="searchform">
+            <input type="text" class="searchTerm" placeholder="Search..." >
+            <span class="input-group-btn">
+                <button class="btn btn-secondary" type="submit"><span class="glyphicon glyphicon-search"></span> </button>
+            </span>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <!-- Create Bounty/Information -->
+
+    <div class="row text-center">
+        <div class="col-md-12"><strong>Create your own</strong></div>
+    </div>
+    <br>
+    <div class="row text-center">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#placeBet">Bounty <span class="glyphicon glyphicon-search"></span></button>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#placeInfo">Information <span class="glyphicon glyphicon-info-sign"></span></button>
+    </div>
+    <ul id="events" class="collapse list-group"></ul>
+    <hr>
+
+    <div class="modal fade" id="placeBet" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 align="center" class="modal-title">Create a Bounty</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form>
+                                <div class="form-group">
+                                    <label for="bounty_title">Title</label>
+                                    <input type="text" class="form-control" id="bounty_title" placeholder="Title">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="bounty_description">Description (Max. 500 words)</label>
+                                    <textarea type="text" class="form-control vresize" id="bounty_description" placeholder="Description" rows="4"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="bounty_amount">Set amount of ZTPS Tokens as value of bounty</label>
+                                    <input type="number" class="form-control" id="bounty_amount" placeholder="0" pattern="[0-9]+([\.,][0-9]+)?" step="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bounty_terms">Tags</label>
+                                    <textarea type="text" class="form-control vresize" id="bounty_tags" placeholder="Murder FBI SBI Police Robbery" maxlength="255"></textarea>
+                                </div>
+                                <div class="boxes">
+                                    <input type="checkbox" id="box-1" onclick="showCheckBox()">
+                                    <label for="box-1">Set conditions to release bounty (Max. of 3 conditions)</label>
+
+                                    <div id="showCheckBoxData" style="display:none">
+
+                                    <h4><a>Condition 1</a></h4>
+                                    <input type="text" id="BountyCondition1" class="form-control" placeholder="Description">
+                                    <br>
+                                    <a>I wish to release </a> <input id="BountyConditionPercentage1" type="number" min="1" max="100"  placeholder="%"> <a>% of my total tips if condition 1 is achieved.</a>
+                                    <br><br><a>Create another condition </a> <button id="AddCondition2" type="button" onclick="showCheckBox2()">Add Condition</button>
+
+
+
+                                    <div id="showCheckBoxData2" style="display:none">
+                                    <a>______________________________________________________________________</a>
+                                        <br>
+                                    <h4><a>Condition 2</a></h4>
+                                    <input type="text" id="BountyCondition2" class="form-control" placeholder="Description">
+                                    <br>
+                                    <a>I wish to release </a> <input id="BountyConditionPercentage2" type="number" min="1" max="100"  placeholder="%"> <a>% of my total tips if condition 2 is achieved.</a>
+                                    <br><br><a>Create another condition </a> <button id="AddCondition3" type="button" onclick="showCheckBox3()">Add Condition</button>
+                                    </div>
+
+                                    <div id="showCheckBoxData3" style="display:none">
+                                    <a>______________________________________________________________________</a>
+                                        <br>
+                                    <h4><a>Condition 3</a></h4>
+                                    <input type="text" id="BountyCondition3" class="form-control" placeholder="Description">
+                                    <br>
+                                    <a>I wish to release </a> <input id="BountyConditionPercentage3" type="number" min="1" max="100"  placeholder="%"> <a>% of my total tips if condition 3 is achieved.</a>
+                                    </div>
+
+
+
+                                    </div>
+
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="submit_bounty_to_blockchain" class="btn btn-primary btn-success" data-dismiss="modal" onclick="App.createBounty(); return false;">Submit</button>
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="placeInfo" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 align="center" class="modal-title">Create an Information</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form>
+                                <div class="form-group">
+                                    <label for="info_title">General Details</label>
+                                    <input type="text" class="form-control" id="info_title">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="info_description">Description (Max. 500 words)</label>
+                                    <input type="text" class="form-control vresize" id="info_description">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="info_amount">Set amount of ZTPS Tokens as value of bounty</label>
+                                    <input type="number" class="form-control" id="info_amount" placeholder="0" pattern="[0-9]+([\.,][0-9]+)?" step="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="info_terms">Tags</label>
+                                    <textarea type="text" class="form-control vresize" id="info_terms" placeholder="Murder FBI SBI Police Robbery" maxlength="255"></textarea>
+                                </div>
+                                <div class="boxes">
+                                    <input type="checkbox" id="box-1">
+                                    <label for="box-1">Set conditions to release bounty (Max. of 3 conditions)</label>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="submit_information_to_blockchain" class="btn btn-primary btn-success" data-dismiss="modal" onclick="App.placeInfo(); return false;">Submit</button>
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Bounty Grid Cards-->
+    <div>
+        <h1>Bounties</h1>
+        <br><br>
+        <div class="row" id="bounty_row">
+        </div>
+    </div>
+    <!-- End Bounty Grid Cards -->
+
+
+    <!--Information Grid Cards-->
+    <div>
+        <h1>Informations</h1>
+        <br><br>
+        <div class="row" id="information_row">
+        </div>
+    </div>
+
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!-- <script src="js/url.js"></script>
+<script src="js/http.js"></script> -->
+<script src="js/web3.min.js"></script>
+<script src="js/truffle-contract.js"></script>
+<!-- <script src="js/swarm.js"></script> -->
+<script src="js/app.js"></script>
+<!--<script src="js/main.js"></script>-->
+<script type="text/javascript">
+
+    var cookieData = document.cookie;
+    var name = "userName="
+    var ca = document.cookie.split(';');
+    var userName;
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            userName = c.substring(name.length, c.length);
+        }
+    }
+    if(userName != null && userName != "") {
+        var a1 = '<ul class="nav navbar-nav navbar-right"><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">'
+        var a2 = ' <span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="#">All Bounties</a></li><li><a href="#">Messages</a></li><li class="divider"></li><li class="logout"><a>Logout</a></li></ul></li></ul>'
+        var uldata = a1+userName+a2;
+
+        // alert(cardTemplate
+
+        var mydiv = document.getElementById("defaultNavbar1");
+        mydiv.innerHTML = "";
+        var newDiv = document.createElement('div');
+        newDiv.innerHTML = uldata;
+        // alert(newDiv.innerHTML);
+
+        while (newDiv.firstChild) {
+            mydiv.appendChild(newDiv.firstChild);
+        }
+    }
+</script>
+
+<script type="text/javascript">
+
+    function showCheckBox() {
+    var checkBox = document.getElementById("box-1");
+    var text = document.getElementById("showCheckBoxData");
+    if (checkBox.checked == true){
+        text.style.display = "block";
+    } else {
+       text.style.display = "none";
+    }
+}
+
+    function showCheckBox2() {
+    var checkBox = document.getElementById("box-1");
+    var text = document.getElementById("showCheckBoxData2");
+    if (checkBox.checked == true){
+        
+        if (text.style.display == "block") {
+            text.style.display = "none";
+
+            document.getElementById("AddCondition2").innerHTML = "Add Condition";
+
+        } else {
+            text.style.display = "block";
+
+            document.getElementById("AddCondition2").innerHTML = "Hide Condition";
+
+        }
+
+    }
+}
+
+
+    function showCheckBox3() {
+    var checkBox = document.getElementById("box-1");
+    var text = document.getElementById("showCheckBoxData3");
+    if (checkBox.checked == true){
+        
+        if (text.style.display == "block") {
+            text.style.display = "none";
+            document.getElementById("AddCondition3").innerHTML = "Add Condition";
+        } else {
+            text.style.display = "block";
+            document.getElementById("AddCondition3").innerHTML = "Hide Condition";
+        }
+
+    }
+}
+
+var placeTipNumbers = 0;
+
+</script>
+
+</body>
+</html>

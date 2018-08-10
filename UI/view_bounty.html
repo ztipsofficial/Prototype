@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>View Bounty | ZTips</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      <a class="navbar-brand" href="/">ZTips</a></div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+      <div class="navbar-brand navbar-header navbar-right">
+          Bounty
+      </div>
+
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid --> 
+</nav>
+<!-- Title of Bounty -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1 class="text-center" id="bounty_title">Title</h1>
+    </div>
+  </div>
+  <hr>
+</div>
+
+
+<div class="container">
+  <div class="row text">
+    <div class="col-md-6 col-md-offset-3">
+    
+  	
+  		<!-- Description of bounty-->
+	  	<div class="details">
+	    	<label for="example-text-input" class="col-2 col-form-label">Details : </label>
+	    	<p id="bounty_details"></p>
+		</div>
+		
+		
+	  
+		
+	</div>
+  </div>
+  
+<!-- Bounty Reward Amount -->
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 col-xs-12">
+			<div style=" display: inline-block;"><h5><b>Amount of ZTPS for Bounty Reward :</b> </h5></div>
+			<div style="display: inline-block;" id="reward_value"></div>
+		</div>
+	</div>
+	<br>
+	<hr>
+<!-- End Bounty Reward Amount -->
+
+  <div class="form-group">
+		<label for="exampleTextarea">Information/Tip (max 500 characters)</label>
+		<textarea required class="form-control" id="message" placeholder="Inforamtion..." rows="4"></textarea>
+	  </div>
+
+<!-- Submit Bounty -->
+    <div class="row text-center" style="padding-bottom: 20px;">
+		  <button type="button" id="msg_submit" class="btn btn-success">Send Information</button>
+    </div>
+    <p style="font-weight: bold;">Owner: </p>
+    <p id="owner"></p>
+</div>
+
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/web3.min.js"></script>
+<script src="js/truffle-contract.js"></script>
+<script src="js/app.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
